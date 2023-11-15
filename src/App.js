@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { triggerIncrementRequest } from "./redux/actions/countAction";
+import { fetchPostsRequest } from "./redux/actions/postAction";
+
 
 const App = () => {
-  const countFromRedux = useSelector((state) => state.count);
   const dispatch = useDispatch();
+  const makeApiCall = async()=>{
+    try{
+      dispatch(fetchPostsRequest());
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  useEffect(()=>{
+    makeApiCall();
+  },[])
+  const countFromRedux = useSelector((state) => state.count);
   const { number, loading } = countFromRedux;
 
   const handleIncrement = () => {
