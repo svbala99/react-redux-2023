@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { triggerIncrementRequest } from "./redux/actions/countAction";
+import { triggerIncrementRequest, triggerDecrementRequest } from "./redux/actions/countAction";
 
 const App = () => {
   const countFromRedux = useSelector((state) => state.count);
@@ -13,7 +13,7 @@ const App = () => {
   };
 
   const handleDecrement = () => {
-    alert("decrement functionality is pending yet");
+    dispatch(triggerDecrementRequest())
   };
 
   return (
@@ -21,7 +21,7 @@ const App = () => {
       <button style={styles.btn} onClick={handleIncrement}>
         +
       </button>
-      {loading ? <h1> ...</h1> : <h1 style={styles.m48}>{number}</h1>}
+      {loading ? <h1>Count</h1> : <h1 style={styles.m48}>{number}</h1>}
       <button style={styles.btn} onClick={handleDecrement}>
         -
       </button>
