@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
 import { triggerIncrementRequest, triggerDecrementRequest } from "./redux/actions/countAction";
-=======
-import { triggerIncrementRequest } from "./redux/actions/countAction";
 import { fetchPostsRequest } from "./redux/actions/postAction";
 
->>>>>>> dev
 
 const App = () => {
   const dispatch = useDispatch();

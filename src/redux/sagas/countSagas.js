@@ -12,24 +12,24 @@ import {
 function* incrementSaga() {
   try {
     yield put(triggerIncrementSuccess());
-    yield put(triggerDecrementSuccess());
+    // yield put(triggerDecrementSuccess());
   } catch (e) {
     yield put(triggerIncrementError(e));
-    yield put(triggerDecrementError(e));
+    // yield put(triggerDecrementError(e));
   }
 }
 
-function* decrementSaga() {
-  try {
-    yield put(triggerDecrementSuccess());
-  } catch (e) {
-    yield put(triggerDecrementError(e));
-  }
-}
+// function* decrementSaga() {
+//   try {
+//     yield put(triggerDecrementSuccess());
+//   } catch (e) {
+//     yield put(triggerDecrementError(e));
+//   }
+// }
 
 // watcher saga - MASTER
 function* countWatcherSaga() {
-  yield takeLatest(INCREMENT_REQUEST,DECREMENT_REQUEST, incrementSaga, decrementSaga);
+  yield takeLatest(INCREMENT_REQUEST, incrementSaga);
 }
 
 const countSaga = [fork(countWatcherSaga)];
