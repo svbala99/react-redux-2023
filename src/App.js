@@ -1,24 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { triggerIncrementRequest, triggerDecrementRequest } from "./redux/actions/countAction";
-import { fetchPostsRequest } from "./redux/actions/postAction";
+import { FETCH_POSTS_REQUEST, fetchPostsRequest, fetchPostsSuccess } from "./redux/actions/postAction";
+import { fetchPhotoRequest } from "./redux/actions/photoAction";
 
 
 const App = () => {
   const dispatch = useDispatch();
   const makeApiCall = async()=>{
     try{
-      dispatch(fetchPostsRequest());
+      const payload = {
+        title: 'foo',
+      body: 'bar',
+      userId: 1,
+      }
+      dispatch(fetchPostsRequest(payload));
+      dispatch(fetchPostsSuccess())
     }
     catch(e){
       console.error(e)
     }
   }
+
+  const makePhotoApiCall = ()=>{
+    try{
+      dispatch(fetchPhotoRequest())
+
+    }
+    catch(e){
+      console.log(e)
+    }
+  }
   useEffect(()=>{
     makeApiCall();
+    makePhotoApiCall();
   },[])
   const countFromRedux = useSelector((state) => state.count);
+  const photoFromRedux = useSelector((state) => state.photo);
+
+  console.log(photoFromRedux)
+
   const { number, loading } = countFromRedux;
 
   const handleIncrement = () => {
@@ -38,6 +60,13 @@ const App = () => {
       <button style={styles.btn} onClick={handleDecrement}>
         -
       </button>
+      {
+        photoFromRedux?.data?.map(i=>{
+          return <div>
+            <img src={i?.thumbnailUrl} />
+          </div>
+        })
+      }
     </div>
   );
 };

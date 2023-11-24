@@ -19,17 +19,19 @@ function* incrementSaga() {
   }
 }
 
-// function* decrementSaga() {
-//   try {
-//     yield put(triggerDecrementSuccess());
-//   } catch (e) {
-//     yield put(triggerDecrementError(e));
-//   }
-// }
+function* decrementSaga() {
+  try {
+    yield put(triggerDecrementSuccess());
+  } catch (e) {
+    yield put(triggerDecrementError(e));
+  }
+}
 
 // watcher saga - MASTER
 function* countWatcherSaga() {
   yield takeLatest(INCREMENT_REQUEST, incrementSaga);
+  yield takeLatest(DECREMENT_REQUEST, decrementSaga);
+  
 }
 
 const countSaga = [fork(countWatcherSaga)];
