@@ -13,9 +13,9 @@ function* fetchPostSaga(action) {
     const postsResponse = yield getRequest(
       `${API_URLS.BASE_URL}${API_URLS.POSTS}`
     );
-    const req = yield postRequest( `${API_URLS.BASE_URL}${API_URLS.POSTS}`, action?.payload)
+    const response = yield postRequest( `${API_URLS.BASE_URL}${API_URLS.POSTS}`, action?.payload)
     yield put(fetchPostsSuccess(postsResponse?.data));
-    yield put(fetchPostsSuccess(req?.data));
+    yield put(fetchPostsSuccess(response?.data));
 
   } catch (e) {
     yield put(fetchPostsError(e));

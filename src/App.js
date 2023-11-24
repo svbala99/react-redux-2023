@@ -16,7 +16,6 @@ const App = () => {
       userId: 1,
       }
       dispatch(fetchPostsRequest(payload));
-      dispatch(fetchPostsSuccess())
     }
     catch(e){
       console.error(e)
@@ -61,7 +60,7 @@ const App = () => {
         -
       </button>
       {
-        photoFromRedux?.data?.map(i=>{
+        photoFromRedux?.data?.slice(0,10)?.map(i=>{
           return <div>
             <img src={i?.thumbnailUrl} />
           </div>

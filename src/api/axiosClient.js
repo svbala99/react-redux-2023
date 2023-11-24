@@ -21,7 +21,7 @@ export async function postRequest(URL='', payload) {
     if (URL?.length === 0) {
       return;
     }
-  const response = await axiosClient.post(`/${URL}`, payload);
+  const response = await axiosClient.post(`${URL}`, payload);
     return response;
 }
 
@@ -29,7 +29,7 @@ export async function patchRequest(URL='', payload) {
     if (URL?.length === 0) {
       return;
     }
-  const response = await axiosClient.patch(`/${URL}`, payload);
+  const response = await axiosClient.patch(`${URL}`, payload);
     return response;
 }
 
@@ -37,7 +37,7 @@ export async function deleteRequest(URL='') {
     if (URL?.length === 0) {
       return;
     }
-  const response = await axiosClient.delete(`/${URL}`);
+  const response = await axiosClient.delete(`${URL}`);
     return response;
 }
 
