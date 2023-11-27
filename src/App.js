@@ -3,6 +3,7 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { triggerIncrementRequest } from "./redux/actions/countAction";
 import { fetchPostsRequest } from "./redux/actions/postAction";
+import Calender from "./screens/Home";
 
 
 const App = () => {
@@ -31,13 +32,7 @@ const App = () => {
 
   return (
     <div style={styles.container} className="App">
-      <button style={styles.btn} onClick={handleIncrement}>
-        +
-      </button>
-      {loading ? <h1> ...</h1> : <h1 style={styles.m48}>{number}</h1>}
-      <button style={styles.btn} onClick={handleDecrement}>
-        -
-      </button>
+        <Calender />
     </div>
   );
 };
