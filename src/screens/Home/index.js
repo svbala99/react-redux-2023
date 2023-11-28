@@ -1,31 +1,14 @@
-import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCalenderSuccess } from '../../redux/actions/calenderAction';
+import React from "react";
+import API_URLS from "../../constants/apiConstants";
 
+const Calender = () => {
+  const dateString = `2023/27112023`;
 
-function Calender() {
-    const dispatch = useDispatch();
-
-    const calenderGetAPI = async()=>{
-        try{
-            dispatch(fetchCalenderSuccess())
-        }
-        catch(e){
-            console.log(e)
-        }
-            
-    }
-
-    useEffect(()=>{
-        calenderGetAPI()
-    }
-
-    )
   return (
     <div>
-      HAI
+      <img src={`${API_URLS.CALENDER}/${dateString}.jpg`} alt="Calendar img" />
     </div>
-  )
-}
+  );
+};
 
-export default Calender
+export default Calender;
