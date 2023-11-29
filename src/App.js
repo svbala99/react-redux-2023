@@ -8,17 +8,17 @@ import Calender from "./screens/Home";
 
 const App = () => {
   const dispatch = useDispatch();
-  const makeApiCall = async()=>{
-    try{
-      dispatch(fetchPostsRequest());
-    }
-    catch(e){
-      console.error(e)
-    }
-  }
-  useEffect(()=>{
-    makeApiCall();
-  },[])
+  // const makeApiCall = async()=>{
+  //   try{
+  //     dispatch(fetchPostsRequest());
+  //   }
+  //   catch(e){
+  //     console.error(e)
+  //   }
+  // }
+  // useEffect(()=>{
+  //   makeApiCall();
+  // },[])
   const countFromRedux = useSelector((state) => state.count);
   const { number, loading } = countFromRedux;
 
