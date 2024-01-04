@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import Calender from "./screens/Home";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  //const dispatch = useDispatch();
   // const makeApiCall = async()=>{
   //   try{
   //     dispatch(fetchPostsRequest());
@@ -18,13 +18,7 @@ const App = () => {
   const countFromRedux = useSelector((state) => state.count);
   const { number, loading } = countFromRedux;
 
-  const handleIncrement = () => {
-    dispatch(triggerIncrementRequest());
-  };
-
-  const handleDecrement = () => {
-    alert("decrement functionality is pending yet");
-  };
+ 
 
   return (
     <div style={styles.container} className="App">
