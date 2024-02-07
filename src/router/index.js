@@ -5,6 +5,9 @@ import Dashboard from "../pages/dashboard";
 import SignUp from "../pages/signup";
 import ProtectedRoute from "./protectedRoute";
 import Calender from "../pages/calender";
+import Railway from "../pages/railway";
+import Contact from "../pages/contact";
+import ToDoList from "../pages/todolist";
 
 const RouteList = () => {
   return (
@@ -25,6 +28,18 @@ const RouteList = () => {
            <Route
             path="/calender"
             element={<Calender />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
+           <Route
+            path="/todolist"
+            element={<ToDoList />}
+          />
+          <Route
+            path="/railway"
+            element={<Railway />}
           />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>

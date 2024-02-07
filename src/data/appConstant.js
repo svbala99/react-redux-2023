@@ -10,3 +10,7 @@ TODO: 'ToDo',
 RAILWAY: 'Railway',
 CONTACT: 'Contact'
 }
+
+export const Api ={
+    CALENDER:'https://www.tamildailycalendar.com/'
+}
